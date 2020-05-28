@@ -1,0 +1,58 @@
+
+<html>
+    {% include 'OMTBApp/header.html' %}
+    <head>
+        <title>Home Page</title>
+    </head>
+    <body>
+        <div style="width:450px ; margin: auto;">
+        <fieldset>
+        <legend><i><b>Add Movie Details</b></i></legend>
+        <form action="/updatecust/{{updatecust.CustId}}" enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+            <table cellpadding="7px" cellspacing="8px" align=center>
+            <tr>
+                <td><label>ID:</label></td>
+                <td><input type="text" name="CustId" id="CustId" value={{updatecust.CustId}} placeholder="Movie Name"></td>
+            </tr>
+            <tr>
+                <td><label>First Name:</label></td>
+                <td><input type="text" name="CustFName" id="Fname" value={{updatecust.CustFName}} placeholder="Movie Name"></td>
+            </tr>
+            <tr>
+                <td><label>Last Name:</label></td>
+                <td><input type="text" name="CustLName" id="Lname" value={{updatecust.CustLName}} placeholder="Movie Name"></td>
+            </tr>
+            <tr>
+                <td><label>Email-Id</label></td>
+                <td><input type="text" name="CustEmailId" id="Id" value={{updatecust.CustEmailId}} placeholder="Movie Name"></td>
+            </tr>
+            <tr>
+                <td><label>Password:</label></td>
+                <td><input type="text" name="CustPassword" id="Pass" value={{updatecust.CustPassword}} placeholder="Movie Name"></td>
+            </tr>
+            <tr>
+                <td><label>Cust ContactNo</label></td>
+                <td><input type="text" name="CustContactNo" id="CustContactNo" value={{updatecust.CustContactNo}} placeholder="Movie Name"></td>
+            </tr>
+            <tr>
+                <td><label>CustAddress</label></td>
+                <td><input type="text" name="CustAddress" id="CustAddress" value={{updatecust.CustAddress}} placeholder="Movie Name"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Update Movie"></td>
+            </tr>
+            <tr>
+                <td colspan="2">{{status}}</td>
+            </tr>
+        </form>
+        </fieldset>
+    </table>
+ 
+
+    </div>
+
+ 
+    </body>
+    {% include 'OMTBApp/footer.html' %}
+</html>

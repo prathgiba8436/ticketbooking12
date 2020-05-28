@@ -1,0 +1,39 @@
+{% include 'OMTBApp/header.html' %}\
+<div class="table" style="width:100%;margin:20px">
+        <table style="width:100%;" cellpadding="10px">
+            <caption>Movie List</caption>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email Id</th>
+                <th>Contact</th>
+                <th>Address</th>
+            </tr>
+            </thead>
+            <tbody style="font-size:18px;color:green">
+                {% for customer in customerobject %}
+                <tr>
+                    <td>{{customer.CustId}}</td>
+                    <td>{{customer.CustFName}}</td>
+                    <td>{{customer.CustLName}}</td>
+                    <td>{{customer.CustEmailId}}</td>
+                    <td>{{customer.CustContactNo}}</td>
+                    <td>{{customer.CustAddress}}</td>
+                    <td>
+                        <a href="/updatecust/{{customer.CustId}}">Edit</a>
+                        <a href="/deletecustomer/{{customer.CustId}}">Delete</a>
+                    <td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="5">{{status}}</th>
+                </tr>
+        </table>
+
+</div>
+{% include 'OMTBApp/footer.html' %}

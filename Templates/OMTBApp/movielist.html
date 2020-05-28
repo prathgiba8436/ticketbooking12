@@ -1,0 +1,40 @@
+{% include 'OMTBApp/header.html' %}\
+<div class="table" style="width:100%;margin:20px">
+        <table style="width:100%;" cellpadding="10px">
+            <caption>Movie List</caption>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>TYPE</th>
+                <th>LANGUAGE</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody style="font-size:18px;color:green">
+                {% for movie in movielist %}
+                <tr>
+                    <td>{{movie.movieId}}</td>
+                    <td><img src="{{movie.MovieImg.url}} " width="100px" height="100px"\></td>
+                    <td>{{movie.MovieName}}</td>
+                    <td>{{movie.MovieType}}</td>
+                    
+                    <td>{{movie.MovieLanguage}}</td>
+                    {% if request.session.admin != None %}
+                    <td>
+                        <a href="/updatemovie/{{movie.movieId}}">Edit</a>
+                        <a href="/deletemovie/{{movie.movieId}}">Delete</a>
+                    <td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="5">{{status}}</th>
+                </tr>
+        </table>
+
+</div>
+{% include 'OMTBApp/footer.html' %}

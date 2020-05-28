@@ -1,0 +1,55 @@
+{% include 'OMTBApp/header.html' %}\
+<div class="table" style="width:100%;margin:20px">
+        <table style="width:100%;" cellpadding="10px">
+            <caption>Movie List</caption>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Movie Name</th>
+                <th>Movie Image</th>
+
+                <th>Theatre-Name and Location</th>
+                <th>Screen No</th>
+                <th>Show Date</th>
+                <th>Show Time</th>
+                <th>Show Price</th>
+                <th>Action</th>
+
+            </tr>
+            </thead>
+            <tbody style="font-size:18px;color:green">
+                {% for show in showobj %}
+                <tr>
+                    <td>{{show.ShowId}}</td>
+                    <td>{{show.movie.MovieName}}</td>
+                    <td><img src="{{show.movie.MovieImg.url}} " width="100px" height="100px"\></td>
+                    <td>{{show.theatreNameLocation}}</td>
+                    <td>{{show.screen}}</td>
+                    <td>{{show.showDate}}</td>
+                    <td>{{show.showTime}}</td>
+                    <td>{{show.showPrice}}</td>
+                    
+                    <td>
+                        {% if request.session.admin != None %}
+                        <a href="/updateshow/{{show.ShowId}}">Edit</a>
+                        <a href="/deleteshow/{{show.ShowId}}">Delete</a>
+                    
+                    {% endif %}
+                    {% if request.session.customer != None %}
+                        <a href="bookshow/{{show.ShowId}}">Book</a>
+                    {% endif %}
+
+                {% endfor %}
+            </td>
+        </tr>
+  
+
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="5">{{status}}</th>
+                </tr>
+        </table>
+
+</div>
+{% include 'OMTBApp/footer.html' %}

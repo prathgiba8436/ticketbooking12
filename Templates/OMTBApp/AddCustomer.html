@@ -1,0 +1,53 @@
+<html>
+    {% include 'OMTBApp/header.html' %}
+    <head>
+        <title>User Login</title>
+    </head>
+    <body>
+        <div style="width:450px ; margin: auto;">
+        <fieldset>
+        <legend><i><b>Customer Details</b></i></legend>
+        <form action="signup" enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+            <h1>{{status}}</h1>
+            <table cellpadding="7px" cellspacing="8px" align=center>
+            <tr>
+                <td><label>Enter Frst Name:</label></td>
+                <td><input type="text" name="CustFName" id="CustFName" placeholder="Enter First Name"></td>
+            </tr>
+            <tr>
+                <td><label>Enter Last Name:</label></td>
+                <td><input type="text" name="CustLName" id="CustLName" placeholder="Enter Last Name"></td>
+            </tr>
+  
+            <tr>
+                <td><label>Enter EmailId :</label></td>
+                <td><input type="text" name="CustEmailId" id="CustEmailId" placeholder="Enter Email Id"></td>
+            </tr>
+            <tr>
+                <td><label>Enter Password:</label></td>
+                <td><input type="text" name="CustPassword" id="CustPassword" placeholder="Enter Password"></td>
+            </tr>
+            <tr>
+                <td><label>Enter Contact:</label></td>
+                <td><input type="text" name="CustContactNo" id="CustContactNo" placeholder="Enter Contac No"></td>
+            </tr>
+            <tr>
+                <td><label>Enter Address:</label></td>
+                <td><input type="text" name="CustAddress" id="CustAddress" placeholder="Enter Address"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Add Movie"></td>
+            </tr>
+
+        </form>
+        </fieldset>
+    </table>
+ 
+
+    </div>
+
+ 
+    </body>
+    {% include 'OMTBApp/footer.html' %}
+</html>
