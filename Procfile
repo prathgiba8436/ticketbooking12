@@ -1,1 +1,1 @@
-web: gunicorn OnlineTicketBookingSystem.wsgi --log-file
+web: gunicorn OnlineTicketBookingSystem.wsgi --log-file -
